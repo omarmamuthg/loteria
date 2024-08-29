@@ -113,3 +113,64 @@ while True:  # Menú principal
         #     escribir_archivo.writerow(("Ganadores", "Cartas de partida"))
         #     escribir_archivo.writerows([id,datos] for id,datos in lista_c_2_listas.items())
         #     #escribir_archivo.writerows([id for id in lista_c_2_listas,datos for datos in lista_c_2_listas.values()])
+
+
+
+    elif select == "2":  # Resumen de partidas
+        longitud=len(lstGanadores)
+        for resumen in range(longitud):
+            print(f"\n{resumen + 1}° PARTIDA")
+            print(f"El Ganador: {lstGanadores[resumen]}\n")
+            for resumen2 in listagrande_elegidas[resumen]:
+                print(f"*{resumen2}*")
+        # while True:
+        #     import_excel=input("Exportar a excel? Si(S) | No(N) -> ").upper() 
+            '''
+            if import_excel == "S":
+                if os.path.exists(archivo_barajas): 
+                    with open("Hermanos.csv", "r", newline="") as archivo_barajas :
+                        leer_datos= csv.reader(archivo_barajas)
+                        next(leer_datos)
+                        for clave in diccionario:
+                            lista.append([str(clave), diccionario[clave][0], diccionario[clave][1], diccionario[clave][2]])
+        for lector in leer_datos:
+            diccionario[int(lector[0])]=(lector[1],lector[2],lector[3])
+                else:
+                    print("El archivo no existe!")
+                    
+
+
+            elif import_excel == "N":
+                break
+            else:
+            print("Elige otra opcion !")
+            '''
+    elif select == "3":
+        print("FIN DEL JUEGO, ESPERO Y TE HAYAS DIVERTIDO!!")
+        break
+    else:
+        print("Ingrese una opción válida")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
