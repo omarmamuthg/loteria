@@ -16,7 +16,7 @@ def resumen_cartas():
     for carta in barajas_elegidas:
         print(f"**{carta}**")
 
-def reanudar_partida():
+def reanudar_partida_pregunta():
     while True:
         reanudar=input("Deseas reanudar la partida?? (S/N)").upper()
         if reanudar == "S":
@@ -31,6 +31,9 @@ def reanudar_partida():
         else:
             print("La opcion no es valida, introduce una opcion valida")
             continue
+def reanudar_partida_sin_pregunta():
+    cartas()
+
 
 def menu():
     print("\n--LOTERÍA MEXICANA--\n")
@@ -70,4 +73,43 @@ archivo_barajas = r"C:\Users\jahaz\OneDrive\Documentos\ejercicios visual\Loteria
 
 while True:  # Menú principal
     barajas_elegidas = []
-    break
+    menu()
+    select = input("Seleccione una opción: ")
+    if select == "1":  # Iniciar partida
+        cartas()
+        while True:
+            dar = input("¿Desea sacar otra carta? (S/N): ").upper()
+            if dar =="S":
+                cartas()
+            elif dar =="N":
+                resumen_cartas()
+                while True:
+                    reanudar=input("Deseas reanudar la partida?? (S/N): ").upper()
+                    if reanudar == "S":
+                        break
+                    elif reanudar== "N":
+                        resumen_cartas()
+                        ganador = input("Ingrese el nombre del ganador: ")
+                        lstGanadores.append(ganador)
+                        listagrande_elegidas.append(barajas_elegidas)
+                        for agregar_D_nuevo_a_baraja in barajas_elegidas:
+                            listbaraja.append(agregar_D_nuevo_a_baraja)
+                        lista_c_2_listas[ganador]=barajas_elegidas
+                        break
+                    else:
+                        print("La opcion no es valida, introduce una opcion valida")
+                        continue
+                if reanudar =="S":
+                    cartas()
+                    continue
+                #elif reanudar == "N":
+                    #print(lista_c_2_listas)
+                    #*****************************************************************************************************************************
+                break
+            else:
+                print("La opcion ingresada no es valida.")
+        # with open("Loteria.csv", "w", newline="") as archivo_barajas:
+        #     escribir_archivo = csv.writer(archivo_barajas)
+        #     escribir_archivo.writerow(("Ganadores", "Cartas de partida"))
+        #     escribir_archivo.writerows([id,datos] for id,datos in lista_c_2_listas.items())
+        #     #escribir_archivo.writerows([id for id in lista_c_2_listas,datos for datos in lista_c_2_listas.values()])
